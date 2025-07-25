@@ -1,0 +1,1778 @@
+local xenolib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xeno9995/XENOLIB/refs/heads/main/XENO%20LIBRARY%20NEW%20UPD%20STEAL%20A%20BRAINROT"))()
+
+-- تبويب اليوتيوب
+local dcTab       = createTab("Dis & Tube", "XN") -- Discord logo color
+createSection(dcTab, "Subscribe To My Channel and Join My Discord")
+createExampleBox(dcTab, function(box)
+    box.Size = UDim2.new(1, -20, 0, 120)
+    box.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    local border = box:FindFirstChildOfClass("UIStroke")
+    if border then border.Color = Color3.fromRGB(255, 0, 0) border.Transparency = 0.15 end
+
+    local logo = Instance.new("Frame", box)
+    logo.Size = UDim2.new(0, 55, 0, 55)
+    logo.Position = UDim2.new(0, 0, 0, 0)
+    logo.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    logo.BorderSizePixel = 0
+    Instance.new("UICorner", logo).CornerRadius = UDim.new(0, 0)
+
+    local xnText = Instance.new("TextLabel", logo)
+    xnText.Size = UDim2.new(1, 0, 1, 0)
+    xnText.BackgroundTransparency = 1
+    xnText.Text = "XN"
+    xnText.TextColor3 = Color3.fromRGB(0, 255, 64)
+    xnText.Font = Enum.Font.GothamBlack
+    xnText.TextScaled = true
+
+    local nameLabel = Instance.new("TextLabel", box)
+    nameLabel.Size = UDim2.new(1, -70, 0, 30)
+    nameLabel.Position = UDim2.new(0, 58, 0, 5)
+    nameLabel.BackgroundTransparency = 1
+    nameLabel.Text = "XENO HUB"
+    nameLabel.TextColor3 = Color3.fromRGB(0, 255, 100)
+    nameLabel.Font = Enum.Font.GothamBold
+    nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+    nameLabel.TextScaled = true
+
+    local subBtn = Instance.new("TextButton", box)
+    subBtn.Size = UDim2.new(1, -24, 0, 36)
+    subBtn.Position = UDim2.new(0, 12, 0, 60)
+    subBtn.BackgroundColor3 = Color3.fromRGB(220, 0, 0)
+    subBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    subBtn.Text = "Subscribe To The Channel"
+    subBtn.Font = Enum.Font.GothamBold
+    subBtn.TextSize = 15
+    subBtn.AutoButtonColor = true
+    Instance.new("UICorner", subBtn).CornerRadius = UDim.new(0, 7)
+
+    local copied = false
+    local ytLink = "https://www.youtube.com/@XENO_SHOTS"
+    local origText = subBtn.Text
+    local origColor = subBtn.BackgroundColor3
+
+    subBtn.MouseButton1Click:Connect(function()
+        if copied then return end
+        copied = true
+        nameLabel.Text = "XENO HUB"
+        subBtn.Text = "Copied!"
+        subBtn.BackgroundColor3 = Color3.fromRGB(130,130,130)
+        if setclipboard then pcall(function() setclipboard(ytLink) end) end
+        wait(2.5)
+        nameLabel.Text = "XENO HUB"
+        subBtn.Text = origText
+        subBtn.BackgroundColor3 = origColor
+        copied = false
+    end)
+end)
+createSection(dcTab, "Join To My Discord Server")
+-- DISCORD INVITE TAB
+
+createExampleBox(dcTab, function(box)
+	box.Size = UDim2.new(1, -20, 0, 120)
+	box.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	local border = box:FindFirstChildOfClass("UIStroke")
+	if border then 
+		border.Color = Color3.fromRGB(114, 137, 218) -- لون ديسكورد
+		border.Transparency = 0.15 
+	end
+
+	-- Logo
+	local logo = Instance.new("Frame", box)
+	logo.Size = UDim2.new(0, 55, 0, 55)
+	logo.Position = UDim2.new(0, 0, 0, 0)
+	logo.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+	logo.BorderSizePixel = 0
+	local logocorner = Instance.new("UICorner", logo)
+	logocorner.CornerRadius = UDim.new(1, 0)
+	local xnText = Instance.new("TextLabel", logo)
+	xnText.Size = UDim2.new(1, 0, 1, 0)
+	xnText.BackgroundTransparency = 1
+	xnText.Text = "XN"
+	xnText.TextColor3 = Color3.fromRGB(114, 137, 218)
+	xnText.Font = Enum.Font.GothamBlack
+	xnText.TextScaled = true
+
+	-- XENO HUB Discord
+	local nameLabel = Instance.new("TextLabel", box)
+	nameLabel.Size = UDim2.new(1, -70, 0, 30)
+	nameLabel.Position = UDim2.new(0, 58, 0, 5)
+	nameLabel.BackgroundTransparency = 1
+	nameLabel.Text = "XENO HUB COMMUNITY"
+	nameLabel.TextColor3 = Color3.fromRGB(114, 137, 218)
+	nameLabel.Font = Enum.Font.GothamBold
+	nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+	nameLabel.TextScaled = true
+
+	-- Join Button
+	local joinBtn = Instance.new("TextButton", box)
+	joinBtn.Size = UDim2.new(1, -24, 0, 36)
+	joinBtn.Position = UDim2.new(0, 12, 0, 60)
+	joinBtn.BackgroundColor3 = Color3.fromRGB(114, 137, 218)
+	joinBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	joinBtn.Text = "Join The Server"
+	joinBtn.Font = Enum.Font.GothamBold
+	joinBtn.TextSize = 15
+	joinBtn.AutoButtonColor = true
+	Instance.new("UICorner", joinBtn).CornerRadius = UDim.new(0, 7)
+
+	local copied = false
+	local dcLink = "https://discord.gg/PxcunF6Z" -- 🔁 عدل الرابط هنا برابط دعوة سيرفرك
+	local origText = joinBtn.Text
+	local origColor = joinBtn.BackgroundColor3
+
+	joinBtn.MouseButton1Click:Connect(function()
+		if copied then return end
+		copied = true
+		nameLabel.Text = "XENO HUB COMMUNITY"
+		joinBtn.Text = "Copied!"
+		joinBtn.BackgroundColor3 = Color3.fromRGB(130,130,130)
+		if setclipboard then pcall(function() setclipboard(dcLink) end) end
+		wait(3)
+		nameLabel.Text = "XENO HUB COMMUNITY"
+		joinBtn.Text = origText
+		joinBtn.BackgroundColor3 = origColor
+		copied = false
+	end)
+end)
+
+local StealesTab = createTab("Steales")
+createSection(StealTab, "Main Steal Brainrot")
+-- ⚙️ متغيرات عامة
+local player = game.Players.LocalPlayer
+local lockedBasePart = nil
+
+-- 🧠 وظيفة: حركة تدريجية ذكية (مع تفادي الجدران بشكل بسيط)
+local function smartMoveToBase(targetPosition)
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:WaitForChild("HumanoidRootPart", 5)
+
+    if not targetPosition then
+        warn("❌ لم يتم تحديد مكان الهدف!")
+        return false
+    end
+
+    local startPos = rootPart.Position
+    local goalPosition = targetPosition
+    local distance = (goalPosition - startPos).Magnitude
+
+    print("🚀 بدء النقل الذكي من مسافة:", math.floor(distance))
+
+    local steps = math.clamp(math.floor(distance / 25), 6, 40)
+    for i = 1, steps do
+        local alpha = i / steps
+        local nextPosition = startPos:Lerp(goalPosition, alpha)
+        
+        -- تفادي الجدران عبر رفع اللاعب إذا وجد عائق أمامه (Raycast للأمام)
+        local direction = (goalPosition - rootPart.Position).Unit
+        local ray = Ray.new(rootPart.Position, direction * 5)
+        local hitPart = workspace:FindPartOnRay(ray, character)
+        if hitPart and hitPart.CanCollide and not hitPart:IsDescendantOf(character) then
+            nextPosition = nextPosition + Vector3.new(0, 4, 0) -- ارتفاع بسيط فوق العائق
+        end
+
+        character:PivotTo(CFrame.new(nextPosition))
+        task.wait(0.09)
+    end
+
+    character:PivotTo(CFrame.new(goalPosition))
+    print("✅ تم نقل اللاعب بنجاح إلى الهدف.")
+    return true
+end
+
+-- 🏴‍☠️ وظيفة السرقة (مثال: جمع شيء)
+local function doStealAction()
+    print("🏴‍☠️ تنفيذ عملية السرقة فوق البارت...")
+    -- عدل هذا حسب لعبتك (مثال: RemoteEvent أو تحصيل كوين)
+    task.wait(0.8)
+end
+
+-- 🧱 زر وضع البارت على حسب مؤشر الشاشة
+createButton(StealesTab, "Place Part Steal", function()
+    if lockedBasePart then
+        lockedBasePart:Destroy()
+        lockedBasePart = nil
+    end
+
+    local mouse = player:GetMouse()
+    print("👆 اختر مكان البارت بالضغط على الشاشة...")
+    local conn
+    conn = mouse.Button1Down:Connect(function()
+        local position = mouse.Hit.Position
+        lockedBasePart = Instance.new("Part")
+        lockedBasePart.Name = "LockedBasePart"
+        lockedBasePart.Size = Vector3.new(4, 1, 4)
+        lockedBasePart.Anchored = true
+        lockedBasePart.Transparency = 0.25
+        lockedBasePart.Color = Color3.fromRGB(255, 0, 0)
+        lockedBasePart.Material = Enum.Material.Neon
+        lockedBasePart.CanCollide = false
+        lockedBasePart.Parent = workspace
+        lockedBasePart.Position = Vector3.new(position.X, position.Y + 1, position.Z)
+        print("✅ تم وضع البارت في:", lockedBasePart.Position)
+        conn:Disconnect()
+    end)
+end)
+
+-- 🔄 زر سرقة تلقائية واحترافية عند وجود وحش/لاعب فوق البارت
+createButton(StealesTab, "Auto Base Steal", function()
+    pcall(function()
+        if not lockedBasePart then
+            warn("❌ يجب وضع البارت أولاً!")
+            return
+        end
+
+        local character = player.Character or player.CharacterAdded:Wait()
+        local rootPart = character:WaitForChild("HumanoidRootPart", 5)
+        local basePos = lockedBasePart.Position + Vector3.new(0, 3, 0)
+
+        print("🚗 بدء النقل الذكي للبارت...")
+        local success = smartMoveToBase(basePos)
+        if success then
+            doStealAction()
+            print("✅ تمت السرقة بنجاح من البارت.")
+        end
+    end)
+end)
+
+-- 🗑️ زر حذف البارت
+createButton(StealesTab, "Delete Base Part", function()
+    if lockedBasePart then
+        lockedBasePart:Destroy()
+        lockedBasePart = nil
+        print("🗑️ تم حذف Base Part.")
+    else
+        warn("⚠️ لا يوجد Base Part لحذفه.")
+    end
+end)
+createSection(StealesTab, "Steal Brain V2")
+-- ⚙️ متغيرات عامة
+local player = game.Players.LocalPlayer
+local lockedBasePart = nil
+
+-- 🧠 وظيفة: حركة تدريجية ذكية من مكان بعيد إلى البارت
+local function moveToLockedBaseGradually()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:WaitForChild("HumanoidRootPart", 5)
+
+    if not lockedBasePart then
+        warn("❌ لم يتم تحديد Base Part!")
+        return false
+    end
+
+    local goalPosition = lockedBasePart.Position + Vector3.new(0, 3, 0)
+    local currentPosition = rootPart.Position
+    local distance = (goalPosition - currentPosition).Magnitude
+
+    if distance < 10 then
+        character:PivotTo(CFrame.new(goalPosition))
+        return true
+    end
+
+    print("🚀 بدء النقل التدريجي من مسافة:", math.floor(distance))
+
+    local steps = math.clamp(math.floor(distance / 100), 3, 25)
+    for i = 1, steps do
+        local alpha = i / steps
+        local nextPosition = currentPosition:Lerp(goalPosition, alpha)
+        character:PivotTo(CFrame.new(nextPosition))
+        task.wait(0.1)
+    end
+
+    character:PivotTo(CFrame.new(goalPosition))
+    print("✅ تم نقل اللاعب بنجاح إلى القاعدة.")
+    return true
+end
+
+-- 🏴‍☠️ "وظيفة السرقة" (مثال: جمع كوين أو تنفيذ حدث)
+local function doStealAction()
+    print("🏴‍☠️ تنفيذ عملية السرقة فوق البارت...")
+    -- ضع هنا الكود الخاص بالسرقة حسب لعبتك
+    -- مثال: firing a remote event, collecting a coin, etc.
+    task.wait(0.8) -- وقت تنفيذ السرقة
+end
+
+-- 🧱 وظيفة وضع البارت في مكان محدد
+local function placeBasePartAt(position)
+    if lockedBasePart then
+        lockedBasePart:Destroy()
+        lockedBasePart = nil
+    end
+
+    lockedBasePart = Instance.new("Part")
+    lockedBasePart.Name = "LockedBasePart"
+    lockedBasePart.Size = Vector3.new(4, 1, 4)
+    lockedBasePart.Anchored = true
+    lockedBasePart.Transparency = 0.3
+    lockedBasePart.Color = Color3.fromRGB(255, 0, 0)
+    lockedBasePart.Material = Enum.Material.Neon
+    lockedBasePart.CanCollide = false
+    lockedBasePart.Parent = workspace
+
+    lockedBasePart.Position = Vector3.new(position.X, position.Y + 1, position.Z)
+    print("✅ Base part placed at:", lockedBasePart.Position)
+end
+
+-- 🔄 النظام التلقائي: يكرر العملية
+local function autoStealLoop(loopCount)
+    local mouse = player:GetMouse()
+    print("يرجى تحديد مكان البارت باستخدام الماوس...")
+    -- ننتظر نقرة من المستخدم لمكان البارت الأول
+    local done = false
+    local firstPos
+    local conn
+    conn = mouse.Button1Down:Connect(function()
+        firstPos = mouse.Hit.Position
+        done = true
+        conn:Disconnect()
+    end)
+    repeat task.wait() until done
+
+    for i = 1, loopCount do
+        print(("🔄 دورة رقم %d..."):format(i))
+        placeBasePartAt(firstPos)
+
+        task.wait(0.2)
+        local moved = moveToLockedBaseGradually()
+        if moved then
+            doStealAction()
+        end
+
+        -- نقل اللاعب بعيدًا (مثلاً زيادة X)
+        local character = player.Character or player.CharacterAdded:Wait()
+        local rootPart = character:WaitForChild("HumanoidRootPart", 5)
+        local awayPosition = rootPart.Position + Vector3.new(10, 0, 0)
+        character:PivotTo(CFrame.new(awayPosition))
+        print("🚶 تم نقل اللاعب بعيداً قليلاً.")
+        task.wait(0.5)
+    end
+
+    print("✅ انتهى النظام التلقائي.")
+end
+-- زر جديد: نظام تلقائي للسرقة
+createButton(StealesTab, "Auto Steal Base V2", function()
+    pcall(function()
+        autoStealLoop(5) -- عدد الدورات (يمكنك تغييره)
+    end)
+end)
+
+-- باقي الأزرار (يدوي)
+createButton(StealesTab, "Delete Steal Part V2", function()
+    if lockedBasePart then
+        lockedBasePart:Destroy()
+        lockedBasePart = nil
+        print("🗑️ تم حذف Base Part.")
+    else
+        warn("⚠️ لا يوجد Base Part لحذفه.")
+    end
+end)
+createSection(StealesTab, "Up & Down & Speed")
+createButton(StealesTab, "Up & Down", function()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local Character = player.Character or player.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+-- Ø­Ù…Ø§ÙŠØ© Ø¶Ø¯ Ø§Ù„Ø·Ø±Ø¯ Ø£Ùˆ Ø§Ù„ØºØ´
+pcall(function()
+	local mt = getrawmetatable(game)
+	setreadonly(mt, false)
+	local old = mt.__namecall
+	mt.__namecall = newcclosure(function(self, ...)
+		local args = {...}
+		local method = getnamecallmethod()
+		if tostring(self) == "Kick" or tostring(method):lower() == "kick" then
+			warn("ðŸš« Ù…Ø­Ø§ÙˆÙ„Ø© Ø·Ø±Ø¯ ØªÙ… Ù…Ù†Ø¹Ù‡Ø§.")
+			return nil
+		end
+		return old(self, unpack(args))
+	end)
+end)
+
+-- Ø¥Ù†Ø´Ø§Ø¡ GUI
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "SkyFloatUI"
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 140, 0, 60)
+frame.Position = UDim2.new(0.05, 0, 0.3, 0)
+frame.BackgroundColor3 = Color3.fromRGB(0, 132, 255)
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(1, -20, 0, 40)
+button.Position = UDim2.new(0, 10, 0, 10)
+button.Text = "UP"
+button.TextColor3 = Color3.new(1, 1, 1)
+button.BackgroundColor3 = Color3.new(0, 0, 0)
+button.Font = Enum.Font.SourceSansBold
+button.TextSize = 20
+button.Parent = frame
+
+local platform = nil
+local isFlying = false
+local originalY = 0
+local flightDuration = 24 * 60 * 60 -- 24 Ø³Ø§Ø¹Ø© Ø¨Ø§Ù„Ø«ÙˆØ§Ù†ÙŠ
+
+local flightTimer = nil
+
+local function isCarryingItem()
+	for _, v in pairs(Character:GetChildren()) do
+		if v:IsA("Tool") or v:FindFirstChild("Handle") then
+			return true
+		end
+	end
+	return false
+end
+
+local function landPlayer()
+	if platform and platform.Parent then
+		platform:Destroy()
+		platform = nil
+	end
+
+	Character = player.Character or player.CharacterAdded:Wait()
+	HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+	HumanoidRootPart.CFrame = CFrame.new(HumanoidRootPart.Position.X, originalY + 5, HumanoidRootPart.Position.Z)
+
+	isFlying = false
+	button.Text = "UP"
+
+	if flightTimer then
+		flightTimer:Disconnect()
+		flightTimer = nil
+	end
+end
+
+button.MouseButton1Click:Connect(function()
+	Character = player.Character or player.CharacterAdded:Wait()
+	HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+	if not isFlying then
+		if isCarryingItem() then
+			originalY = HumanoidRootPart.Position.Y
+
+			if not platform then
+				platform = Instance.new("Part")
+				platform.Size = Vector3.new(100, 1, 100)
+				platform.Anchored = true
+				platform.CanCollide = true
+				platform.Transparency = 1
+				platform.Name = "SkyPlatform"
+				platform.Position = Vector3.new(HumanoidRootPart.Position.X, 250, HumanoidRootPart.Position.Z)
+				platform.Parent = workspace
+			end
+
+			wait(0.1)
+			HumanoidRootPart.CFrame = CFrame.new(HumanoidRootPart.Position.X, 251.5, HumanoidRootPart.Position.Z)
+
+			isFlying = true
+			button.Text = "DOWN"
+
+			-- Ø¨Ø¯Ø¡ Ø¹Ø¯Ø§Ø¯ 24 Ø³Ø§Ø¹Ø©
+			if flightTimer then
+				flightTimer:Disconnect()
+			end
+			flightTimer = game:GetService("RunService").Heartbeat:Connect(function(step)
+				flightDuration = flightDuration - step
+				if flightDuration <= 0 then
+					landPlayer()
+				end
+			end)
+		else
+			warn("â— ÙŠØ¬Ø¨ Ø£Ù† ØªØ­Ù…Ù„ Ø´ÙŠØ¡ Ø£ÙˆÙ„Ø§Ù‹ Ù‚Ø¨Ù„ Ø§Ù„Ø·ÙŠØ±Ø§Ù†.")
+		end
+	else
+		landPlayer()
+	end
+end)
+ print("Hello!")
+ end)
+
+-- 💼 الخدمات
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local TeleportService = game:GetService("TeleportService")
+local LocalPlayer = Players.LocalPlayer
+
+-- 🛡️ Anti Kick
+local mt = getrawmetatable(game)
+local oldNamecall = mt.__namecall
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(self, ...)
+	local method = getnamecallmethod()
+	if tostring(method):lower() == "kick" and self == LocalPlayer then
+		warn("🚫 Anti Kick Triggered")
+		return nil
+	end
+	return oldNamecall(self, ...)
+end)
+setreadonly(mt, true)
+
+-- 🛡️ Anti Teleport
+pcall(function()
+	hookfunction(TeleportService.Teleport, function()
+		warn("🚫 Anti Teleport Triggered")
+	end)
+	hookfunction(TeleportService.TeleportToPlaceInstance, function()
+		warn("🚫 Anti Teleport Triggered")
+	end)
+end)
+
+-- 🔁 استرجاع القيم عند الموت
+local function onCharacterAdded(char)
+	local humanoid = char:WaitForChild("Humanoid")
+	humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+		if _G.jumpEnabled then
+			humanoid.JumpPower = _G.jumpPowerValue or 130
+		end
+	end)
+	humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+		if _G.speedEnabled then
+			humanoid.WalkSpeed = _G.speedValue or 75
+		end
+	end)
+
+	if _G.jumpEnabled then
+		humanoid.JumpPower = _G.jumpPowerValue or 130
+		humanoid.UseJumpPower = true
+	end
+	if _G.speedEnabled then
+		humanoid.WalkSpeed = _G.speedValue or 75
+	end
+end
+
+LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+if LocalPlayer.Character then
+	onCharacterAdded(LocalPlayer.Character)
+end
+
+-- 🌟 واجهة GUI يتم إنشاؤها وإخفاؤها حسب التوغّل
+local function createAbilityGui(name)
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = name .. "Gui"
+	screenGui.ResetOnSpawn = false
+	screenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+	screenGui.Enabled = false
+
+	local mainFrame = Instance.new("Frame")
+	mainFrame.Size = UDim2.new(0, 220, 0, 90)
+	mainFrame.Position = UDim2.new(0.4, math.random(-100, 100), 0.3, math.random(-50, 50))
+	mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	mainFrame.Active = true
+	mainFrame.Draggable = true
+	mainFrame.Parent = screenGui
+
+	local corner = Instance.new("UICorner", mainFrame)
+	corner.CornerRadius = UDim.new(0, 12)
+
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0.8, 0, 0.5, 0)
+	label.Position = UDim2.new(0.1, 0, 0.25, 0)
+	label.BackgroundTransparency = 1
+	label.TextColor3 = Color3.new(1, 1, 1)
+	label.Font = Enum.Font.GothamBold
+	label.TextSize = 20
+	label.Text = name .. " Active"
+	label.Parent = mainFrame
+
+	return screenGui
+end
+
+-- 🧩 أنشئ الواجهات فقط
+local jumpGui = createAbilityGui("Jump Power")
+local speedGui = createAbilityGui("Speed Boost")
+
+-- 📌 التوغّلات داخل تبويب StealesTab
+-- يجب أن تكون مكتبة createToggle موجودة لديك مسبقًا
+createToggle(StealesTab, "Jump Power", false, function(state)
+	_G.jumpEnabled = state
+	jumpGui.Enabled = state
+
+	local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid")
+
+	if state then
+		_G.jumpPowerValue = 130
+		humanoid.JumpPower = _G.jumpPowerValue
+		humanoid.UseJumpPower = true
+	else
+		humanoid.JumpPower = 50
+	end
+end)
+
+createToggle(StealesTab, "Speed Boost", false, function(state)
+	_G.speedEnabled = state
+	speedGui.Enabled = state
+
+	local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid")
+
+	if state then
+		_G.speedValue = 75
+		humanoid.WalkSpeed = _G.speedValue
+	else
+		humanoid.WalkSpeed = 16
+	end
+end)
+
+local EspTab = createTab("Esp")
+createSection(EspTab, "Esp All Players & Bases")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+local espEnabled = false
+local espObjects = {}
+
+-- دالة لإنشاء ESP لشخصية لاعب
+local function createESPForPlayer(player)
+	if player == LocalPlayer then return end
+	local character = player.Character
+	if not character or not character:FindFirstChild("HumanoidRootPart") then return end
+
+	-- ESP للأجزاء
+	for _, part in ipairs(character:GetDescendants()) do
+		if part:IsA("BasePart") and not part:FindFirstChild("ESP_Box") then
+			local box = Instance.new("BoxHandleAdornment")
+			box.Name = "ESP_Box"
+			box.Adornee = part
+			box.Size = part.Size + Vector3.new(0.1, 0.1, 0.1)
+			box.Color3 = Color3.fromRGB(0, 170, 255)
+			box.AlwaysOnTop = true
+			box.ZIndex = 5
+			box.Transparency = 0.3
+			box.Parent = part
+			table.insert(espObjects, box)
+		end
+	end
+
+	-- اسم اللاعب فوق الرأس
+	local head = character:FindFirstChild("Head")
+	if head and not head:FindFirstChild("ESP_Name") then
+		local billboard = Instance.new("BillboardGui")
+		billboard.Name = "ESP_Name"
+		billboard.Adornee = head
+		billboard.Size = UDim2.new(0, 100, 0, 20)
+		billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+		billboard.AlwaysOnTop = true
+		billboard.Parent = head
+
+		local nameLabel = Instance.new("TextLabel")
+		nameLabel.Size = UDim2.new(1, 0, 1, 0)
+		nameLabel.BackgroundTransparency = 1
+		nameLabel.Text = player.Name
+		nameLabel.TextColor3 = Color3.new(1, 1, 1)
+		nameLabel.TextScaled = true
+		nameLabel.Font = Enum.Font.SourceSans
+		nameLabel.TextStrokeTransparency = 0.5
+		nameLabel.Parent = billboard
+
+		table.insert(espObjects, billboard)
+	end
+end
+
+-- حذف كل ESP
+local function removeAllESP()
+	for _, obj in ipairs(espObjects) do
+		if obj and obj.Parent then
+			obj:Destroy()
+		end
+	end
+	espObjects = {}
+end
+
+-- تحديث ESP لجميع اللاعبين
+local function updateESP()
+	removeAllESP()
+	for _, player in ipairs(Players:GetPlayers()) do
+		if player.Character then
+			createESPForPlayer(player)
+		end
+	end
+end
+
+-- عند انضمام لاعبين جدد
+Players.PlayerAdded:Connect(function(player)
+	player.CharacterAdded:Connect(function()
+		if espEnabled then
+			wait(1)
+			createESPForPlayer(player)
+		end
+	end)
+end)
+
+-- تفعيل/تعطيل Toggle
+createToggle(EspTab, "Esp Players", false, function(state)
+	espEnabled = state
+	if state then
+		updateESP()
+		RunService:BindToRenderStep("ESP_Update", Enum.RenderPriority.Camera.Value + 1, function()
+			-- يتم التحديث فقط إذا كان التوجل مفعلاً
+			for _, player in ipairs(Players:GetPlayers()) do
+				if player.Character and not player.Character:FindFirstChild("ESP_Created") then
+					local tag = Instance.new("BoolValue", player.Character)
+					tag.Name = "ESP_Created"
+					createESPForPlayer(player)
+				end
+			end
+		end)
+	else
+		removeAllESP()
+		RunService:UnbindFromRenderStep("ESP_Update")
+	end
+end)
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local lteInstances = {}
+local espUpdateTask = nil
+local activeLockTimeEsp = false
+
+-- دالة تحديث مؤقت الأماكن وعرضها
+local function updateLockTimes()
+    for _, plot in pairs(Workspace.Plots:GetChildren()) do
+        local purchases = plot:FindFirstChild("Purchases", true)
+        local plotBlock = purchases and purchases:FindFirstChild("PlotBlock", true)
+        local mainPart = plotBlock and plotBlock:FindFirstChild("Main", true)
+        local billboardGui = mainPart and mainPart:FindFirstChild("BillboardGui", true)
+        local timeLabel = billboardGui and billboardGui:FindFirstChild("RemainingTime", true)
+
+        if timeLabel and timeLabel:IsA("TextLabel") then
+            local espName = "LockTimeESP_" .. plot.Name
+            local existingBillboard = plot:FindFirstChild(espName)
+
+            local isUnlocked = timeLabel.Text == "0s"
+            local displayText = isUnlocked and "Unlocked" or ("Lock: " .. timeLabel.Text)
+            local textColor = isUnlocked and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 255, 0)
+
+            if not existingBillboard then
+                local billboard = Instance.new("BillboardGui")
+                billboard.Name = espName
+                billboard.Size = UDim2.new(0, 200, 0, 30)
+                billboard.StudsOffset = Vector3.new(0, 5, 0)
+                billboard.AlwaysOnTop = true
+                billboard.Adornee = mainPart
+
+                local label = Instance.new("TextLabel")
+                label.Text = displayText
+                label.Size = UDim2.new(1, 0, 1, 0)
+                label.BackgroundTransparency = 1
+                label.TextScaled = true
+                label.TextColor3 = textColor
+                label.TextStrokeColor3 = Color3.new(0, 0, 0)
+                label.TextStrokeTransparency = 0
+                label.Font = Enum.Font.SourceSansBold
+                label.Parent = billboard
+
+                billboard.Parent = plot
+                lteInstances[plot.Name] = billboard
+            else
+                local label = existingBillboard:FindFirstChildOfClass("TextLabel")
+                if label then
+                    label.Text = displayText
+                    label.TextColor3 = textColor
+                end
+            end
+        else
+            -- حذف العلامة لو لم يوجد الوقت
+            if lteInstances[plot.Name] then
+                lteInstances[plot.Name]:Destroy()
+                lteInstances[plot.Name] = nil
+            end
+        end
+    end
+end
+
+-- تفعيل/إيقاف ESP بناءً على حالة الـToggle
+createToggle(EspTab, "Esp Lock Base", false, function(state)
+    activeLockTimeEsp = state
+
+    if activeLockTimeEsp then
+        -- إلغاء أي مهمة سابقة
+        if espUpdateTask then
+            espUpdateTask:Cancel()
+        end
+
+        -- بدء تحديث الإشارات بشكل دوري
+        espUpdateTask = task.spawn(function()
+            while activeLockTimeEsp do
+                updateLockTimes()
+                task.wait(0.25)
+            end
+        end)
+    else
+        -- إيقاف المهمة وتنظيف العلامات
+        if espUpdateTask then
+            espUpdateTask:Cancel()
+            espUpdateTask = nil
+        end
+
+        for _, instance in pairs(lteInstances) do
+            if instance and instance.Parent then
+                instance:Destroy()
+            end
+        end
+        lteInstances = {}
+    end
+end)
+
+createSection(EspTab, "Esp All Brainrots Good")
+createToggle(EspTab, "Esp Brainrots", false, function(state)
+    local Workspace = game:GetService("Workspace")
+    local Players = game:GetService("Players")
+
+    local brainrots = {
+        "Odin Din Din Dun", "Matteo", "Girafa Celestre", "Cocofanto Elefanto",
+        "Orcalero Orcala", "Tigroligre Frutonni", "Tralalero Tralala", "Unclito Samito",
+        "Trenostruzzo Turbo 3000"
+    }
+
+    -- تخزين الاتصالات والعناصر
+    if _G.BrainrotESP == nil then _G.BrainrotESP = {} end
+    local connections = _G.BrainrotESP.Connections or {}
+    local addedModels = _G.BrainrotESP.Models or {}
+
+    local function addEsp(model)
+        if model:FindFirstChild("ESPTag") then return end
+        local head = model:FindFirstChild("Head") or model:FindFirstChildWhichIsA("BasePart")
+        if not head then return end
+
+        local billboard = Instance.new("BillboardGui")
+        billboard.Name = "ESPTag"
+        billboard.Size = UDim2.new(0, 100, 0, 40)
+        billboard.StudsOffset = Vector3.new(0, 3, 0)
+        billboard.AlwaysOnTop = true
+        billboard.Adornee = head
+        billboard.Parent = model
+
+        local label = Instance.new("TextLabel", billboard)
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.BackgroundTransparency = 1
+        label.Text = model.Name
+        label.TextColor3 = Color3.fromRGB(255, 0, 0)
+        label.TextScaled = true
+        label.Font = Enum.Font.SourceSansBold
+
+        addedModels[model] = billboard
+    end
+
+    local function removeEsp(model)
+        local tag = model:FindFirstChild("ESPTag")
+        if tag then tag:Destroy() end
+        addedModels[model] = nil
+    end
+
+    local function scanExisting()
+        for _, model in ipairs(Workspace:GetDescendants()) do
+            if model:IsA("Model") and table.find(brainrots, model.Name) then
+                addEsp(model)
+            end
+        end
+    end
+
+    if state then
+        -- تفعيل ESP بدون لاق
+        scanExisting()
+
+        connections.ChildAdded = Workspace.DescendantAdded:Connect(function(descendant)
+            if descendant:IsA("Model") and table.find(brainrots, descendant.Name) then
+                addEsp(descendant)
+            end
+        end)
+
+        connections.ChildRemoved = Workspace.DescendantRemoving:Connect(function(descendant)
+            if descendant:IsA("Model") and table.find(brainrots, descendant.Name) then
+                removeEsp(descendant)
+            end
+        end)
+
+        _G.BrainrotESP.Connections = connections
+        _G.BrainrotESP.Models = addedModels
+    else
+        -- إيقاف ESP و إزالة جميع العلامات
+        for model, _ in pairs(addedModels) do
+            removeEsp(model)
+        end
+        addedModels = {}
+
+        if connections.ChildAdded then
+            connections.ChildAdded:Disconnect()
+            connections.ChildAdded = nil
+        end
+        if connections.ChildRemoved then
+            connections.ChildRemoved:Disconnect()
+            connections.ChildRemoved = nil
+        end
+
+        _G.BrainrotESP.Connections = connections
+        _G.BrainrotESP.Models = addedModels
+    end
+end)
+createSection(EspTab, "Esp All Secrets")
+createToggle(EspTab, "Esp Secrets", false, function(state)
+    local Workspace = game:GetService("Workspace")
+    local Players = game:GetService("Players")
+
+    local brainrots = {
+        "La Grande Combinazione", "Sammyni Spiderini", "Los Tralaleritos", "Garama and Madundung",
+        "La Vacca Saturno Saturnita", "Graipuss Medussi"
+    }
+
+    -- تخزين الاتصالات والعناصر
+    if _G.BrainrotESP == nil then _G.BrainrotESP = {} end
+    local connections = _G.BrainrotESP.Connections or {}
+    local addedModels = _G.BrainrotESP.Models or {}
+
+    local function addEsp(model)
+        if model:FindFirstChild("ESPTag") then return end
+        local head = model:FindFirstChild("Head") or model:FindFirstChildWhichIsA("BasePart")
+        if not head then return end
+
+        local billboard = Instance.new("BillboardGui")
+        billboard.Name = "ESPTag"
+        billboard.Size = UDim2.new(0, 100, 0, 40)
+        billboard.StudsOffset = Vector3.new(0, 3, 0)
+        billboard.AlwaysOnTop = true
+        billboard.Adornee = head
+        billboard.Parent = model
+
+        local label = Instance.new("TextLabel", billboard)
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.BackgroundTransparency = 1
+        label.Text = model.Name
+        label.TextColor3 = Color3.fromRGB(255, 0, 0)
+        label.TextScaled = true
+        label.Font = Enum.Font.SourceSansBold
+
+        addedModels[model] = billboard
+    end
+
+    local function removeEsp(model)
+        local tag = model:FindFirstChild("ESPTag")
+        if tag then tag:Destroy() end
+        addedModels[model] = nil
+    end
+
+    local function scanExisting()
+        for _, model in ipairs(Workspace:GetDescendants()) do
+            if model:IsA("Model") and table.find(brainrots, model.Name) then
+                addEsp(model)
+            end
+        end
+    end
+
+    if state then
+        -- تفعيل ESP بدون لاق
+        scanExisting()
+
+        connections.ChildAdded = Workspace.DescendantAdded:Connect(function(descendant)
+            if descendant:IsA("Model") and table.find(brainrots, descendant.Name) then
+                addEsp(descendant)
+            end
+        end)
+
+        connections.ChildRemoved = Workspace.DescendantRemoving:Connect(function(descendant)
+            if descendant:IsA("Model") and table.find(brainrots, descendant.Name) then
+                removeEsp(descendant)
+            end
+        end)
+
+        _G.BrainrotESP.Connections = connections
+        _G.BrainrotESP.Models = addedModels
+    else
+        -- إيقاف ESP و إزالة جميع العلامات
+        for model, _ in pairs(addedModels) do
+            removeEsp(model)
+        end
+        addedModels = {}
+
+        if connections.ChildAdded then
+            connections.ChildAdded:Disconnect()
+            connections.ChildAdded = nil
+        end
+        if connections.ChildRemoved then
+            connections.ChildRemoved:Disconnect()
+            connections.ChildRemoved = nil
+        end
+
+        _G.BrainrotESP.Connections = connections
+        _G.BrainrotESP.Models = addedModels
+    end
+end)
+local BuysTab = createTab("Buys Tools")
+createSection(BuysTab, "Buy Tools To Start Steal")
+createButton(BuysTab, "Get Anger Table", function()
+-- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم حسب اسم الطاولة الحقيقي باللعبة إن لزم الأمر
+local itemName = "Rage Table"  -- أو "Rage Table" حسب الماب
+
+-- دالة للعثور على RemoteEvent أو RemoteFunction للشراء
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- شراء تلقائي
+local function autoBuyAngerTable()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🪑 يتم شراء طاولة الغضب...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء طاولة الغضب.")
+	end
+end
+
+-- تنفيذ بعد انتظار
+task.wait(0.2)
+autoBuyAngerTable()
+
+ print("Hello!")
+end)
+createButton(BuysTab, "Get Bee Launcher", function()
+-- LocalScript يوضع داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- اسم الأداة أو التـراب المطلوب شراؤه (حسب الاسم المستخدم بالسيرفر)
+local itemName = "Bee Launcher" -- أو "BeeTrap" حسب ما هو موجود في اللعبة
+
+-- وظيفة للعثور على الريموت الصحيح لشراء الأغراض
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- تنفيذ الشراء تلقائيًا
+local function autoBuyBeeLauncher()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🚀 يتم الآن شراء قاذفة النحل...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء Bee Launcher.")
+	end
+end
+
+-- انتظار التحميل ثم الشراء التلقائي
+task.wait(0.2)
+autoBuyBeeLauncher()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Trap", function()
+ -- تأكد أنه LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- اسم الأداة أو التـراب المطلوب شراؤه (يجب معرفة اسمه من السيرفر)
+local trapName = "Trap"
+
+-- دالة البحث عن الريموت الخاص بالشراء
+local function findPurchaseRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if v:IsA("RemoteEvent") or v:IsA("RemoteFunction") then
+			if v.Name:lower():find("buy") or v.Name:lower():find("purchase") then
+				return v
+			end
+		end
+	end
+end
+
+-- محاولة الشراء
+local function autoBuyTrap()
+	local remote = findPurchaseRemote()
+	if remote then
+		warn("🔄 شراء Trap قيد التنفيذ...")
+
+		-- إذا كان RemoteEvent
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(trapName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(trapName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent للشراء.")
+	end
+end
+
+-- تنفيذ الشراء تلقائياً بعد ثوانٍ قليلة من دخول اللعبة
+task.wait(0.2)
+autoBuyTrap()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Ghost Cloak", function()
+ -- LocalScript يوضع داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✅ غيّر هذا الاسم حسب اسم عباءة الشبح الحقيقي في الماب
+local itemName = "Ghost Cloak"  -- أو "Cloak" حسب ما يظهر في الريموت
+
+-- دالة للعثور على RemoteEvent أو RemoteFunction
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- شراء عباءة الشبح تلقائيًا
+local function autoBuyGhostCloak()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🧥 يتم شراء عباءة الشبح...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء عباءة الشبح.")
+	end
+end
+
+-- تشغيل بعد الدخول
+task.wait(0.2)
+autoBuyGhostCloak()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Boogie Bomb", function()
+ -- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم حسب اسم القنبلة الحقيقي داخل اللعبة
+local itemName = "Boogie Bomb"  -- أو "Boji Bomb" أو أي اسم تستخدمه اللعبة فعليًا
+
+-- دالة العثور على RemoteEvent أو RemoteFunction لعملية الشراء
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- دالة الشراء التلقائي
+local function autoBuyBoogieBomb()
+	local remote = findBuyRemote()
+	if remote then
+		warn("💣 يتم الآن شراء قنبلة بوجي...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء قنبلة بوجي.")
+	end
+end
+
+-- تشغيل الشراء بعد التأكد من تحميل اللاعب
+task.wait(0.2)
+autoBuyBoogieBomb()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Medusa Head", function()
+ -- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم حسب الاسم الفعلي لرأس ميدوسا داخل اللعبة
+local itemName = "Medusa Head"  -- أو "Medusa's Head" أو الاسم الحقيقي الموجود في اللعبة
+
+-- العثور على RemoteEvent أو RemoteFunction فيها "buy"
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- الشراء التلقائي
+local function autoBuyMedusaHead()
+	local remote = findBuyRemote()
+	if remote then
+		warn("👁️ يتم الآن شراء رأس ميدوسا...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء رأس ميدوسا.")
+	end
+end
+
+-- بدء الشراء بعد 3 ثواني من دخول اللاعب
+task.wait(0.2)
+autoBuyMedusaHead()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Cosmic Cloner", function()
+ -- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم حسب الاسم الصحيح للأداة في اللعبة
+local itemName = "Cosmic Cloner" -- أو الاسم الفعلي مثل "Universe Duplicator" لو مختلف
+
+-- دالة العثور على RemoteEvent أو RemoteFunction فيه buy
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- تنفيذ الشراء تلقائيًا
+local function autoBuyCosmicCloner()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🌌 يتم شراء منظم النسخ الكونية...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء منظم النسخ الكونية.")
+	end
+end
+
+-- بدء العملية بعد انتظار بسيط
+task.wait(0.2)
+autoBuyCosmicCloner()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Universal Observer", function()
+ -- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر هذا الاسم حسب الاسم الفعلي داخل اللعبة
+local itemName = "Universal Observer"  -- أو "Omni Observer" أو الاسم الذي يظهر في الريموت
+
+-- البحث عن RemoteEvent أو RemoteFunction تحتوي على buy
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- تنفيذ عملية الشراء تلقائيًا
+local function autoBuyObserver()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🔍 يتم شراء المراقب الشامل...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء المراقب الشامل.")
+	end
+end
+
+-- تنفيذ الشراء بعد ثوانٍ من دخول اللاعب
+task.wait(0.2)
+autoBuyObserver()
+
+ print("Hello!")
+ end)
+ createButton(BuysTab, "Get Rayanburath Terror Sword", function()
+ -- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم إلى الاسم الصحيح إن كان مختلف
+local itemName = "Rayanburath Terror Sword"  -- أو الاسم الفعلي للسيف داخل اللعبة
+
+-- العثور على RemoteEvent أو RemoteFunction تحتوي على buy
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- تنفيذ الشراء تلقائيًا
+local function autoBuyTerrorSword()
+	local remote = findBuyRemote()
+	if remote then
+		warn("⚔️ يتم الآن شراء سيف رعب الريانبوراث...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء السيف.")
+	end
+end
+
+-- تنفيذ الشراء بعد انتظار قليل
+task.wait(0.2)
+autoBuyTerrorSword()
+
+ print("Hello!")
+ end)
+createButton(BuysTab, "Get Body Replacement Drug", function()
+-- LocalScript داخل StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = Players.LocalPlayer
+
+-- ✏️ غيّر الاسم حسب اسم العقار الفعلي داخل اللعبة
+local itemName = "Body Replacement Drug"  -- أو "Mind Switcher" أو الاسم الحقيقي في الماب
+
+-- دالة العثور على RemoteEvent أو RemoteFunction تحتوي على buy
+local function findBuyRemote()
+	for _, v in pairs(ReplicatedStorage:GetDescendants()) do
+		if (v:IsA("RemoteEvent") or v:IsA("RemoteFunction")) and v.Name:lower():find("buy") then
+			return v
+		end
+	end
+	return nil
+end
+
+-- تنفيذ الشراء تلقائيًا
+local function autoBuyBodySwap()
+	local remote = findBuyRemote()
+	if remote then
+		warn("🧠 يتم شراء عقار تبديل الجسد...")
+
+		if remote:IsA("RemoteEvent") then
+			pcall(function()
+				remote:FireServer(itemName)
+			end)
+		elseif remote:IsA("RemoteFunction") then
+			pcall(function()
+				remote:InvokeServer(itemName)
+			end)
+		end
+	else
+		warn("❌ لم يتم العثور على RemoteEvent لشراء عقار تبديل الجسد.")
+	end
+end
+
+-- تنفيذ بعد دخول اللاعب
+task.wait(0.2)
+autoBuyBodySwap()
+
+ print("Hello!")
+ end)
+
+local miscTab = createTab("Misc")
+createSection(miscTab, "Anti Everything Use Protection")
+createToggle(miscTab, "God Mode", false, function(state)
+    _G.God = state
+
+    -- God Mode: منع الموت
+    local h = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid")
+    if h then
+        h:GetPropertyChangedSignal("Health"):Connect(function()
+            if _G.God then
+                h.Health = h.MaxHealth
+            end
+        end)
+    end
+
+    -- Anti Ragdoll: حذف المفاصل والأجزاء التي تسبب Ragdoll
+    if _G.RagdollConnection then
+        _G.RagdollConnection:Disconnect()
+        _G.RagdollConnection = nil
+    end
+
+    if state then
+        _G.RagdollConnection = game:GetService("RunService").Stepped:Connect(function()
+            local c = game.Players.LocalPlayer.Character
+            if c then
+                for _, v in pairs(c:GetDescendants()) do
+                    if v:IsA("BallSocketConstraint") or v.Name:lower():find("ragdoll") then
+                        v:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+-- Helper Functions
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+local function WaitForChild(parent, childName)
+	return parent:WaitForChild(childName)
+end
+
+local function OnPropertyChange(instance, property, callback)
+	instance:GetPropertyChangedSignal(property):Connect(function()
+		callback(instance[property])
+	end)
+end
+
+local function ForEachChild(parent, classOrName, callback, isClass)
+	for _, descendant in ipairs(parent:GetDescendants()) do
+		if isClass and descendant:IsA(classOrName) then
+			callback(descendant)
+		elseif not isClass and descendant.Name == classOrName then
+			callback(descendant)
+		end
+	end
+end
+
+-- Toggle: Disable All Screen Effects
+createToggle(miscTab, "Disable All Screen Effects", false, function(state)
+	local blacklist = {
+		"BeeBlur",
+		"ColorCorrection",
+		"DiscoEffect",
+		"Blur",
+	}
+
+	if state then
+		task.spawn(function()
+			for _, name in ipairs(blacklist) do
+				ForEachChild(Lighting, name, function(obj)
+					obj:Destroy()
+				end, false)
+			end
+		end)
+	end
+end)
+
+-- Toggle: Delete All Animations
+createToggle(miscTab, "Delete All Animations", false, function(state)
+	local blockedAnimations = {
+		"rbxassetid://109061983885712", -- Example: Boogie Bomb
+	}
+
+	local function HookHumanoid(humanoid)
+		humanoid.AnimationPlayed:Connect(function(animTrack)
+			local animId = animTrack.Animation.AnimationId
+			if table.find(blockedAnimations, animId) then
+				animTrack:Stop()
+			end
+		end)
+	end
+
+	if state then
+		task.spawn(function()
+			local char = LocalPlayer.Character
+			if char then
+				local hum = char:FindFirstChildOfClass("Humanoid")
+				if hum then HookHumanoid(hum) end
+			end
+
+			LocalPlayer.CharacterAdded:Connect(function(char)
+				local hum = WaitForChild(char, "Humanoid")
+				HookHumanoid(hum)
+			end)
+		end)
+	end
+end)
+
+-- Toggle: Anti Ragdoll
+createToggle(miscTab, "Anti Ragdoll", false, function(state)
+	local blacklistedStates = {
+		Enum.HumanoidStateType.Physics,
+		Enum.HumanoidStateType.Ragdoll,
+		Enum.HumanoidStateType.Dead,
+	}
+
+	if _G._AntiRagdollConnection then
+		_G._AntiRagdollConnection:Disconnect()
+		_G._AntiRagdollConnection = nil
+	end
+
+	if state then
+		_G._AntiRagdollConnection = task.spawn(function()
+			local function HookCharacter(char)
+				local root = WaitForChild(char, "HumanoidRootPart")
+				root.CanCollide = true
+
+				OnPropertyChange(root, "CanCollide", function(can)
+					if not can then root.CanCollide = true end
+				end)
+
+				local ragdollClient = char:FindFirstChild("RagdollClient")
+				if ragdollClient then
+					ragdollClient.Enabled = false
+					OnPropertyChange(ragdollClient, "Enabled", function(enabled)
+						if enabled then ragdollClient.Enabled = false end
+					end)
+				end
+
+				local humanoid = WaitForChild(char, "Humanoid")
+				humanoid.StateChanged:Connect(function(_, state)
+					if table.find(blacklistedStates, state) then
+						humanoid:ChangeState(Enum.HumanoidStateType.Running)
+					end
+				end)
+
+				for _, child in ipairs(char:GetChildren()) do
+					if child:IsA("MeshPart") or child == root then
+						child.Anchored = false
+						OnPropertyChange(child, "Anchored", function(anchor)
+							if anchor then child.Anchored = false end
+						end)
+						ForEachChild(child, "Attachment", function(att)
+							att:Destroy()
+						end, false)
+					end
+				end
+			end
+
+			if LocalPlayer.Character then
+				HookCharacter(LocalPlayer.Character)
+			end
+
+			LocalPlayer.CharacterAdded:Connect(HookCharacter)
+		end)
+	end
+end)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+local antiTrapEnabled = false
+local antiTrapConnection = nil
+
+-- وظيفة بدء الحماية من Trap (مثلاً إلغاء التجمد أو التحرير من الحصار)
+local function startAntiTrap()
+    -- مثال: فحص حالة اللاعب بشكل دوري وإذا علق يتم تحريره تلقائياً
+    antiTrapConnection = RunService.Heartbeat:Connect(function()
+        local character = LocalPlayer.Character
+        if not character then return end
+
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if not humanoid or humanoid.Health <= 0 then return end
+
+        local rootPart = character:FindFirstChild("HumanoidRootPart")
+        if not rootPart then return end
+
+        -- مثال بسيط: إذا سرعة الحركة صفر مع وجود حركة أو توقف غير طبيعي، نفعل تحرر (bodyVelocity صغير)
+        if humanoid.MoveDirection.Magnitude == 0 and humanoid:GetState() == Enum.HumanoidStateType.Ragdoll then
+            -- تحرير الحصار بإضافة قوة دفع خفيفة للأعلى
+            local bv = Instance.new("BodyVelocity")
+            bv.Velocity = Vector3.new(0, 50, 0)
+            bv.MaxForce = Vector3.new(0, math.huge, 0)
+            bv.P = 1000
+            bv.Name = "AntiTrapBoost"
+            bv.Parent = rootPart
+
+            task.delay(0.3, function()
+                if bv and bv.Parent then
+                    bv:Destroy()
+                end
+            end)
+        end
+    end)
+end
+
+-- وظيفة إيقاف الحماية من Trap
+local function stopAntiTrap()
+    if antiTrapConnection then
+        antiTrapConnection:Disconnect()
+        antiTrapConnection = nil
+    end
+end
+
+-- إنشاء زر التبديل Toggle
+createToggle(miscTab, "Anti Trap", false, function(state)
+    antiTrapEnabled = state
+    if antiTrapEnabled then
+        startAntiTrap()
+    else
+        stopAntiTrap()
+    end
+end)
+
+local serverTab = createTab("Server")
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local placeId = game.PlaceId
+local currentJobId = game.JobId
+
+local jobId = ""
+
+-- عنصر الإدخال لتخزينه والتحكم فيه
+local inputBox = createTextBox(serverTab, "Enter Job Id", function(value)
+	jobId = value
+end)
+
+-- زر للانضمام إلى JobId محدد
+createButton(serverTab, "Join Job Id", function()
+	if jobId ~= "" then
+		if jobId ~= currentJobId then
+			pcall(function()
+				TeleportService:TeleportToPlaceInstance(placeId, jobId, Players.LocalPlayer)
+			end)
+		end
+	end
+end)
+
+-- زر لتفريغ الـ JobId
+createButton(serverTab, "Clear Job Id Server", function()
+	jobId = ""
+	if inputBox and inputBox.SetValue then
+		inputBox:SetValue("")
+	end
+end)
+
+-- زر لنسخ الـ JobId الحالي
+createButton(serverTab, "Copy Job Id Server", function()
+	local jobIdToCopy = game.JobId
+	if setclipboard then
+		setclipboard(jobIdToCopy)
+	end
+end)
+
+-- زر للـ Server Hop (يفترض أنك تحصل على newJobId من سيرفرات عامة)
+createButton(serverTab, "Server Hop", function()
+	local HttpService = game:GetService("HttpService")
+
+	local function getServer()
+		local url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100", placeId)
+		local response = game:HttpGet(url)
+		local data = HttpService:JSONDecode(response)
+
+		for _, server in ipairs(data.data) do
+			if server.playing < server.maxPlayers and server.id ~= currentJobId then
+				return server.id
+			end
+		end
+		return nil
+	end
+
+	local serverId = getServer()
+	if serverId then
+		pcall(function()
+			TeleportService:TeleportToPlaceInstance(placeId, serverId, Players.LocalPlayer)
+		end)
+	end
+end)
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local LocalPlayer = Players.LocalPlayer
+
+createButton(serverTab, "Rejoin The Server", function()
+    local placeId = game.PlaceId
+    local jobId = game.JobId
+
+    -- تأكد أن اللاعب موجود
+    if LocalPlayer then
+        -- تنفيذ إعادة الانضمام لنفس السيرفر (Instance)
+        TeleportService:TeleportToPlaceInstance(placeId, jobId, LocalPlayer)
+    else
+        warn("LocalPlayer not found!")
+    end
+end)
