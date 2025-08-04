@@ -1,0 +1,124 @@
+ -- 💼 الخدمات
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local TeleportService = game:GetService("TeleportService")
+local LocalPlayer = Players.LocalPlayer
+
+-- 🛡️ Anti Kick
+local mt = getrawmetatable(game)
+local oldNamecall = mt.__namecall
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(self, ...)
+	local method = getnamecallmethod()
+	if tostring(method):lower() == "kick" and self == LocalPlayer then
+		warn("🚫 Anti Kick Triggered")
+		return nil
+	end
+	return oldNamecall(self, ...)
+end)
+setreadonly(mt, true)
+
+-- 🛡️ Anti Teleport
+pcall(function()
+	hookfunction(TeleportService.Teleport, function()
+		warn("🚫 Anti Teleport Triggered")
+	end)
+	hookfunction(TeleportService.TeleportToPlaceInstance, function()
+		warn("🚫 Anti Teleport Triggered")
+	end)
+end)
+
+-- 🔁 استرجاع القيم عند الموت
+local function onCharacterAdded(char)
+	local humanoid = char:WaitForChild("Humanoid")
+	humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+		if _G.jumpEnabled then
+			humanoid.JumpPower = _G.jumpPowerValue or 130
+		end
+	end)
+	humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+		if _G.speedEnabled then
+			humanoid.WalkSpeed = _G.speedValue or 75
+		end
+	end)
+
+	-- إعادة التفعيل عند Spawn
+	if _G.jumpEnabled then
+		humanoid.JumpPower = _G.jumpPowerValue or 130
+		humanoid.UseJumpPower = true
+	end
+	if _G.speedEnabled then
+		humanoid.WalkSpeed = _G.speedValue or 75
+	end
+end
+
+LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+if LocalPlayer.Character then
+	onCharacterAdded(LocalPlayer.Character)
+end
+
+-- 🌟 دالة GUI
+local function createAbilityGui(name, defaultState, onToggle)
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = name .. "Gui"
+	screenGui.ResetOnSpawn = false
+	screenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+	local mainFrame = Instance.new("Frame")
+	mainFrame.Size = UDim2.new(0, 220, 0, 90)
+	mainFrame.Position = UDim2.new(0.4, math.random(-100, 100), 0.3, math.random(-50, 50))
+	mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	mainFrame.Active = true
+	mainFrame.Draggable = true
+	mainFrame.Parent = screenGui
+
+	local corner = Instance.new("UICorner", mainFrame)
+	corner.CornerRadius = UDim.new(0, 12)
+
+	local button = Instance.new("TextButton")
+	button.Size = UDim2.new(0.8, 0, 0.5, 0)
+	button.Position = UDim2.new(0.1, 0, 0.25, 0)
+	button.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+	button.TextColor3 = Color3.new(1, 1, 1)
+	button.Font = Enum.Font.GothamBold
+	button.TextSize = 20
+	button.Text = name .. " Off"
+	button.Parent = mainFrame
+
+	local uiCorner = Instance.new("UICorner", button)
+	uiCorner.CornerRadius = UDim.new(0, 8)
+
+	local state = defaultState
+	button.MouseButton1Click:Connect(function()
+		state = not state
+		button.Text = name .. (state and " On" or " Off")
+		onToggle(state)
+	end)
+end
+
+-- 🦘 Jump Power
+createAbilityGui("Jump Power", false, function(state)
+	_G.jumpEnabled = state
+	local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid")
+	if state then
+		_G.jumpPowerValue = 135
+		humanoid.JumpPower = _G.jumpPowerValue
+		humanoid.UseJumpPower = true
+	else
+		humanoid.JumpPower = 50
+	end
+end)
+
+-- 🏃‍♂️ Speed Boost
+createAbilityGui("Speed Boost", false, function(state)
+	_G.speedEnabled = state
+	local char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid")
+	if state then
+		_G.speedValue = 80
+		humanoid.WalkSpeed = _G.speedValue
+	else
+		humanoid.WalkSpeed = 16
+	end
+end)
