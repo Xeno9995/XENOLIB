@@ -1,0 +1,148 @@
+--// Xeno Float GUI - Steal a Brainrot
+--// By Dark X
+
+-- 🛡️ Anti Kick (حماية من الطرد)
+local mt = getrawmetatable(game)
+local oldNamecall = mt.__namecall
+setreadonly(mt, false)
+mt.__namecall = newcclosure(function(self, ...)
+    local method = getnamecallmethod()
+    if method == "Kick" or method == "kick" then
+        return nil
+    end
+    return oldNamecall(self, ...)
+end)
+setreadonly(mt, true)
+
+-- 💻 خدمات
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+-- 📌 التأكد أن الماب هو Steal a Brainrot
+if not string.find(game.PlaceId, "") and game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name ~= "Steal a Brainrot" then
+    warn("❌ هذا السكربت مخصص فقط لماب Steal a Brainrot")
+    return
+end
+
+-- 🔢 إعدادات
+_G.speedValue = 70
+local floatHeight = 12 -- الارتفاع عن الأرض
+local floatActive = false
+local floatConnection = nil
+
+-- 🎨 إنشاء واجهة
+local gui = Instance.new("ScreenGui")
+gui.Name = "XenoFloatGui"
+gui.ResetOnSpawn = false
+gui.Parent = game.CoreGui
+
+local main = Instance.new("Frame")
+main.Name = "Main"
+main.Size = UDim2.new(0, 200, 0, 100)
+main.Position = UDim2.new(0.5, -100, 0.5, -50)
+main.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+main.BorderSizePixel = 0
+main.Active = true
+main.Draggable = true
+main.Parent = gui
+
+local title = Instance.new("TextLabel")
+title.Name = "Title"
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+title.Text = "Xeno Float Mode"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 16
+title.Parent = main
+
+local button = Instance.new("TextButton")
+button.Name = "FloatButton"
+button.Size = UDim2.new(0.8, 0, 0, 30)
+button.Position = UDim2.new(0.1, 0, 0.5, -15)
+button.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+button.Text = "Float"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.Font = Enum.Font.SourceSansBold
+button.TextSize = 14
+button.Parent = main
+
+-- 🚀 تفعيل الطفو
+local function applyFloat(character)
+    local hrp = character:WaitForChild("HumanoidRootPart")
+    local humanoid = character:WaitForChild("Humanoid")
+
+    -- إزالة الطفو السابق
+    if hrp:FindFirstChild("FloatPosition") then
+        hrp.FloatPosition:Destroy()
+    end
+
+    -- إضافة BodyPosition
+    local bp = Instance.new("BodyPosition")
+    bp.Name = "FloatPosition"
+    bp.MaxForce = Vector3.new(0, 100000, 0)
+    bp.Position = hrp.Position + Vector3.new(0, floatHeight, 0)
+    bp.D = 1000
+    bp.P = 3000
+    bp.Parent = hrp
+
+    -- ضبط السرعة
+    humanoid.WalkSpeed = _G.speedValue
+
+    -- حركة تلقائية
+    floatConnection = RunService.Heartbeat:Connect(function()
+        if character and hrp and bp and humanoid and humanoid.Health > 0 then
+            bp.Position = Vector3.new(hrp.Position.X, hrp.Position.Y, hrp.Position.Z) + Vector3.new(0, floatHeight, 0)
+            hrp.Velocity = hrp.CFrame.LookVector * _G.speedValue
+        else
+            if floatConnection then
+                floatConnection:Disconnect()
+                floatConnection = nil
+            end
+        end
+    end)
+end
+
+-- 🛑 إيقاف الطفو
+local function removeFloat(character)
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    local humanoid = character:FindFirstChild("Humanoid")
+    if hrp and hrp:FindFirstChild("FloatPosition") then
+        hrp.FloatPosition:Destroy()
+    end
+    if humanoid then
+        humanoid.WalkSpeed = 16 -- سرعة عادية
+    end
+    if floatConnection then
+        floatConnection:Disconnect()
+        floatConnection = nil
+    end
+end
+
+-- 🔘 زر التشغيل والإيقاف
+button.MouseButton1Click:Connect(function()
+    floatActive = not floatActive
+
+    if floatActive then
+        button.Text = "UnFloat"
+        button.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+        if LocalPlayer.Character then
+            applyFloat(LocalPlayer.Character)
+        end
+    else
+        button.Text = "Float"
+        button.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+        if LocalPlayer.Character then
+            removeFloat(LocalPlayer.Character)
+        end
+    end
+end)
+
+-- ⏳ تفعيل تلقائي عند الريسباون
+LocalPlayer.CharacterAdded:Connect(function(char)
+    wait(1)
+    if floatActive then
+        applyFloat(char)
+    end
+end)
